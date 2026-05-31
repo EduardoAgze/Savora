@@ -47,7 +47,7 @@ function RestaurantDashboard() {
       </header>
 
       <div className="px-5">
-        <h1 className="text-2xl font-bold">Hola, Green Bistro 👋</h1>
+        <h1 className="text-2xl font-bold">Hola, La Leñadora 👋</h1>
         <p className="text-sm text-muted-foreground">Resumen de actividad para hoy.</p>
       </div>
 
