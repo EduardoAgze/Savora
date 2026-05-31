@@ -77,14 +77,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Savora — Rescate de Alimentos IA" },
+      {
+        name: "description",
+        content:
+          "Salva comida, ahorra dinero y protege el planeta. Conectamos restaurantes con personas usando precios dinámicos por IA.",
+      },
+      { name: "author", content: "Savora" },
+      { property: "og:title", content: "Savora — Rescate de Alimentos IA" },
+      {
+        property: "og:description",
+        content: "Great food deserves another chance.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {

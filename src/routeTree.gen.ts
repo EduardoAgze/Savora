@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WalletRouteImport } from './routes/wallet'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RoleRouteImport } from './routes/role'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as OrdersRouteImport } from './routes/orders'
@@ -26,6 +27,11 @@ import { Route as PackPackIdRouteImport } from './routes/pack.$packId'
 const WalletRoute = WalletRouteImport.update({
   id: '/wallet',
   path: '/wallet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RoleRoute = RoleRouteImport.update({
@@ -95,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/orders': typeof OrdersRoute
   '/profile': typeof ProfileRoute
   '/role': typeof RoleRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wallet': typeof WalletRoute
   '/pack/$packId': typeof PackPackIdRoute
   '/reservation/$resId': typeof ReservationResIdRoute
@@ -110,6 +117,7 @@ export interface FileRoutesByTo {
   '/orders': typeof OrdersRoute
   '/profile': typeof ProfileRoute
   '/role': typeof RoleRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wallet': typeof WalletRoute
   '/pack/$packId': typeof PackPackIdRoute
   '/reservation/$resId': typeof ReservationResIdRoute
@@ -126,6 +134,7 @@ export interface FileRoutesById {
   '/orders': typeof OrdersRoute
   '/profile': typeof ProfileRoute
   '/role': typeof RoleRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wallet': typeof WalletRoute
   '/pack/$packId': typeof PackPackIdRoute
   '/reservation/$resId': typeof ReservationResIdRoute
@@ -143,6 +152,7 @@ export interface FileRouteTypes {
     | '/orders'
     | '/profile'
     | '/role'
+    | '/sitemap.xml'
     | '/wallet'
     | '/pack/$packId'
     | '/reservation/$resId'
@@ -158,6 +168,7 @@ export interface FileRouteTypes {
     | '/orders'
     | '/profile'
     | '/role'
+    | '/sitemap.xml'
     | '/wallet'
     | '/pack/$packId'
     | '/reservation/$resId'
@@ -173,6 +184,7 @@ export interface FileRouteTypes {
     | '/orders'
     | '/profile'
     | '/role'
+    | '/sitemap.xml'
     | '/wallet'
     | '/pack/$packId'
     | '/reservation/$resId'
@@ -189,6 +201,7 @@ export interface RootRouteChildren {
   OrdersRoute: typeof OrdersRoute
   ProfileRoute: typeof ProfileRoute
   RoleRoute: typeof RoleRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WalletRoute: typeof WalletRoute
   PackPackIdRoute: typeof PackPackIdRoute
   ReservationResIdRoute: typeof ReservationResIdRoute
@@ -206,6 +219,13 @@ declare module '@tanstack/react-router' {
       path: '/wallet'
       fullPath: '/wallet'
       preLoaderRoute: typeof WalletRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/role': {
@@ -301,6 +321,7 @@ const rootRouteChildren: RootRouteChildren = {
   OrdersRoute: OrdersRoute,
   ProfileRoute: ProfileRoute,
   RoleRoute: RoleRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   WalletRoute: WalletRoute,
   PackPackIdRoute: PackPackIdRoute,
   ReservationResIdRoute: ReservationResIdRoute,
