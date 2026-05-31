@@ -9,38 +9,253 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WalletRouteImport } from './routes/wallet'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RoleRouteImport } from './routes/role'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as OrdersRouteImport } from './routes/orders'
+import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RestaurantIndexRouteImport } from './routes/restaurant.index'
+import { Route as RestaurantWalletRouteImport } from './routes/restaurant.wallet'
+import { Route as RestaurantSettingsRouteImport } from './routes/restaurant.settings'
+import { Route as RestaurantReservationsRouteImport } from './routes/restaurant.reservations'
+import { Route as RestaurantNewOfferRouteImport } from './routes/restaurant.new-offer'
+import { Route as ReservationResIdRouteImport } from './routes/reservation.$resId'
+import { Route as PackPackIdRouteImport } from './routes/pack.$packId'
 
+const WalletRoute = WalletRouteImport.update({
+  id: '/wallet',
+  path: '/wallet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoleRoute = RoleRouteImport.update({
+  id: '/role',
+  path: '/role',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdersRoute = OrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExploreRoute = ExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RestaurantIndexRoute = RestaurantIndexRouteImport.update({
+  id: '/restaurant/',
+  path: '/restaurant/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestaurantWalletRoute = RestaurantWalletRouteImport.update({
+  id: '/restaurant/wallet',
+  path: '/restaurant/wallet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestaurantSettingsRoute = RestaurantSettingsRouteImport.update({
+  id: '/restaurant/settings',
+  path: '/restaurant/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestaurantReservationsRoute = RestaurantReservationsRouteImport.update({
+  id: '/restaurant/reservations',
+  path: '/restaurant/reservations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestaurantNewOfferRoute = RestaurantNewOfferRouteImport.update({
+  id: '/restaurant/new-offer',
+  path: '/restaurant/new-offer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReservationResIdRoute = ReservationResIdRouteImport.update({
+  id: '/reservation/$resId',
+  path: '/reservation/$resId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackPackIdRoute = PackPackIdRouteImport.update({
+  id: '/pack/$packId',
+  path: '/pack/$packId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/explore': typeof ExploreRoute
+  '/orders': typeof OrdersRoute
+  '/profile': typeof ProfileRoute
+  '/role': typeof RoleRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/wallet': typeof WalletRoute
+  '/pack/$packId': typeof PackPackIdRoute
+  '/reservation/$resId': typeof ReservationResIdRoute
+  '/restaurant/new-offer': typeof RestaurantNewOfferRoute
+  '/restaurant/reservations': typeof RestaurantReservationsRoute
+  '/restaurant/settings': typeof RestaurantSettingsRoute
+  '/restaurant/wallet': typeof RestaurantWalletRoute
+  '/restaurant/': typeof RestaurantIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/explore': typeof ExploreRoute
+  '/orders': typeof OrdersRoute
+  '/profile': typeof ProfileRoute
+  '/role': typeof RoleRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/wallet': typeof WalletRoute
+  '/pack/$packId': typeof PackPackIdRoute
+  '/reservation/$resId': typeof ReservationResIdRoute
+  '/restaurant/new-offer': typeof RestaurantNewOfferRoute
+  '/restaurant/reservations': typeof RestaurantReservationsRoute
+  '/restaurant/settings': typeof RestaurantSettingsRoute
+  '/restaurant/wallet': typeof RestaurantWalletRoute
+  '/restaurant': typeof RestaurantIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/explore': typeof ExploreRoute
+  '/orders': typeof OrdersRoute
+  '/profile': typeof ProfileRoute
+  '/role': typeof RoleRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/wallet': typeof WalletRoute
+  '/pack/$packId': typeof PackPackIdRoute
+  '/reservation/$resId': typeof ReservationResIdRoute
+  '/restaurant/new-offer': typeof RestaurantNewOfferRoute
+  '/restaurant/reservations': typeof RestaurantReservationsRoute
+  '/restaurant/settings': typeof RestaurantSettingsRoute
+  '/restaurant/wallet': typeof RestaurantWalletRoute
+  '/restaurant/': typeof RestaurantIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/explore'
+    | '/orders'
+    | '/profile'
+    | '/role'
+    | '/sitemap.xml'
+    | '/wallet'
+    | '/pack/$packId'
+    | '/reservation/$resId'
+    | '/restaurant/new-offer'
+    | '/restaurant/reservations'
+    | '/restaurant/settings'
+    | '/restaurant/wallet'
+    | '/restaurant/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/explore'
+    | '/orders'
+    | '/profile'
+    | '/role'
+    | '/sitemap.xml'
+    | '/wallet'
+    | '/pack/$packId'
+    | '/reservation/$resId'
+    | '/restaurant/new-offer'
+    | '/restaurant/reservations'
+    | '/restaurant/settings'
+    | '/restaurant/wallet'
+    | '/restaurant'
+  id:
+    | '__root__'
+    | '/'
+    | '/explore'
+    | '/orders'
+    | '/profile'
+    | '/role'
+    | '/sitemap.xml'
+    | '/wallet'
+    | '/pack/$packId'
+    | '/reservation/$resId'
+    | '/restaurant/new-offer'
+    | '/restaurant/reservations'
+    | '/restaurant/settings'
+    | '/restaurant/wallet'
+    | '/restaurant/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ExploreRoute: typeof ExploreRoute
+  OrdersRoute: typeof OrdersRoute
+  ProfileRoute: typeof ProfileRoute
+  RoleRoute: typeof RoleRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  WalletRoute: typeof WalletRoute
+  PackPackIdRoute: typeof PackPackIdRoute
+  ReservationResIdRoute: typeof ReservationResIdRoute
+  RestaurantNewOfferRoute: typeof RestaurantNewOfferRoute
+  RestaurantReservationsRoute: typeof RestaurantReservationsRoute
+  RestaurantSettingsRoute: typeof RestaurantSettingsRoute
+  RestaurantWalletRoute: typeof RestaurantWalletRoute
+  RestaurantIndexRoute: typeof RestaurantIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wallet': {
+      id: '/wallet'
+      path: '/wallet'
+      fullPath: '/wallet'
+      preLoaderRoute: typeof WalletRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/role': {
+      id: '/role'
+      path: '/role'
+      fullPath: '/role'
+      preLoaderRoute: typeof RoleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orders': {
+      id: '/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof OrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explore': {
+      id: '/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +263,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/restaurant/': {
+      id: '/restaurant/'
+      path: '/restaurant'
+      fullPath: '/restaurant/'
+      preLoaderRoute: typeof RestaurantIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurant/wallet': {
+      id: '/restaurant/wallet'
+      path: '/restaurant/wallet'
+      fullPath: '/restaurant/wallet'
+      preLoaderRoute: typeof RestaurantWalletRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurant/settings': {
+      id: '/restaurant/settings'
+      path: '/restaurant/settings'
+      fullPath: '/restaurant/settings'
+      preLoaderRoute: typeof RestaurantSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurant/reservations': {
+      id: '/restaurant/reservations'
+      path: '/restaurant/reservations'
+      fullPath: '/restaurant/reservations'
+      preLoaderRoute: typeof RestaurantReservationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurant/new-offer': {
+      id: '/restaurant/new-offer'
+      path: '/restaurant/new-offer'
+      fullPath: '/restaurant/new-offer'
+      preLoaderRoute: typeof RestaurantNewOfferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reservation/$resId': {
+      id: '/reservation/$resId'
+      path: '/reservation/$resId'
+      fullPath: '/reservation/$resId'
+      preLoaderRoute: typeof ReservationResIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pack/$packId': {
+      id: '/pack/$packId'
+      path: '/pack/$packId'
+      fullPath: '/pack/$packId'
+      preLoaderRoute: typeof PackPackIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ExploreRoute: ExploreRoute,
+  OrdersRoute: OrdersRoute,
+  ProfileRoute: ProfileRoute,
+  RoleRoute: RoleRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  WalletRoute: WalletRoute,
+  PackPackIdRoute: PackPackIdRoute,
+  ReservationResIdRoute: ReservationResIdRoute,
+  RestaurantNewOfferRoute: RestaurantNewOfferRoute,
+  RestaurantReservationsRoute: RestaurantReservationsRoute,
+  RestaurantSettingsRoute: RestaurantSettingsRoute,
+  RestaurantWalletRoute: RestaurantWalletRoute,
+  RestaurantIndexRoute: RestaurantIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
