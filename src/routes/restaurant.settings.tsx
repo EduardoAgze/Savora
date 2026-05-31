@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { LogOut, Bell, HelpCircle, Globe, ChevronRight } from "lucide-react";
+import { LogOut, Bell, HelpCircle, Globe, ChevronRight, Store } from "lucide-react";
 import { RestaurantTabBar } from "@/components/savora/tab-bar";
 import { savoraStore } from "@/lib/savora/store";
 
@@ -21,7 +21,19 @@ function SettingsPage() {
         <h1 className="text-xl font-bold">Ajustes</h1>
       </header>
 
-      <ul className="flex-1 divide-y px-2">
+      <div className="mx-5 mt-4 flex items-center gap-3 rounded-2xl border bg-card p-4">
+        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/15 text-primary">
+          <Store className="h-6 w-6" />
+        </span>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            Perfil del restaurante
+          </p>
+          <h2 className="text-lg font-bold">NutriDeli</h2>
+        </div>
+      </div>
+
+      <ul className="mt-4 flex-1 divide-y px-2">
         <Row icon={<Bell className="h-5 w-5 text-primary" />} label="Notificaciones" />
         <Row icon={<Globe className="h-5 w-5 text-primary" />} label="Idioma · Español" />
         <Row icon={<HelpCircle className="h-5 w-5 text-primary" />} label="Centro de ayuda" />

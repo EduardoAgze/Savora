@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
+import { Toaster } from "@/components/ui/sonner";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -92,11 +93,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Savora — Rescate de Alimentos IA" },
-      { name: "description", content: "Zip Reality Maker creates a functional web application from a provided ZIP file." },
-      { property: "og:description", content: "Zip Reality Maker creates a functional web application from a provided ZIP file." },
-      { name: "twitter:description", content: "Zip Reality Maker creates a functional web application from a provided ZIP file." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ea276f13-d3ed-4613-8fd9-9b6d6a5747b9/id-preview-b10c6f9c--cce8ef87-1a21-438e-b03b-41e753e24797.lovable.app-1780206570645.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ea276f13-d3ed-4613-8fd9-9b6d6a5747b9/id-preview-b10c6f9c--cce8ef87-1a21-438e-b03b-41e753e24797.lovable.app-1780206570645.png" },
+      {
+        name: "description",
+        content: "Zip Reality Maker creates a functional web application from a provided ZIP file.",
+      },
+      {
+        property: "og:description",
+        content: "Zip Reality Maker creates a functional web application from a provided ZIP file.",
+      },
+      {
+        name: "twitter:description",
+        content: "Zip Reality Maker creates a functional web application from a provided ZIP file.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ea276f13-d3ed-4613-8fd9-9b6d6a5747b9/id-preview-b10c6f9c--cce8ef87-1a21-438e-b03b-41e753e24797.lovable.app-1780206570645.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ea276f13-d3ed-4613-8fd9-9b6d6a5747b9/id-preview-b10c6f9c--cce8ef87-1a21-438e-b03b-41e753e24797.lovable.app-1780206570645.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -135,6 +153,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <Toaster position="top-center" richColors />
     </QueryClientProvider>
   );
 }

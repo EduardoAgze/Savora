@@ -15,9 +15,27 @@ export const Route = createFileRoute("/restaurant/")({
 });
 
 const fakeReservations = [
-  { name: "Juan P.", initial: "J", pack: "Pack Lasaña Vegana", time: "14:30 - 15:00", status: "en camino" },
-  { name: "María G.", initial: "M", pack: "Pack Ensaladas Mixtas (x2)", time: "15:15 - 16:00", status: "confirmado" },
-  { name: "Carlos D.", initial: "C", pack: "Pack Panadería Dulce", time: "17:00 - 17:30", status: "confirmado" },
+  {
+    name: "Juan P.",
+    initial: "J",
+    pack: "Pack Lasaña Vegana",
+    time: "14:30 - 15:00",
+    status: "en camino",
+  },
+  {
+    name: "María G.",
+    initial: "M",
+    pack: "Pack Ensaladas Mixtas (x2)",
+    time: "15:15 - 16:00",
+    status: "confirmado",
+  },
+  {
+    name: "Carlos D.",
+    initial: "C",
+    pack: "Pack Panadería Dulce",
+    time: "17:00 - 17:30",
+    status: "confirmado",
+  },
 ];
 
 function RestaurantDashboard() {
@@ -38,16 +56,14 @@ function RestaurantDashboard() {
           }
         >
           <span
-            className={
-              "h-2.5 w-2.5 rounded-full " + (open ? "bg-primary" : "bg-muted-foreground")
-            }
+            className={"h-2.5 w-2.5 rounded-full " + (open ? "bg-primary" : "bg-muted-foreground")}
           />
           {open ? "Abierto" : "Cerrado"}
         </button>
       </header>
 
       <div className="px-5">
-        <h1 className="text-2xl font-bold">Hola, La Leñadora 👋</h1>
+        <h1 className="text-2xl font-bold">Hola, NutriDeli 👋</h1>
         <p className="text-sm text-muted-foreground">Resumen de actividad para hoy.</p>
       </div>
 
@@ -73,7 +89,11 @@ function RestaurantDashboard() {
       </div>
 
       <div className="mx-5 mt-3 grid grid-cols-2 gap-3">
-        <Metric icon={<ShoppingBag className="h-5 w-5 text-primary" />} value={`${offers.length + 11}`} label="Packs Hoy" />
+        <Metric
+          icon={<ShoppingBag className="h-5 w-5 text-primary" />}
+          value={`${offers.length + 11}`}
+          label="Packs Hoy"
+        />
         <Metric icon={<Leaf className="h-5 w-5 text-primary" />} value="3.2 kg" label="Salvados" />
       </div>
 

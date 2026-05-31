@@ -1,4 +1,11 @@
-export type Category = "Todos" | "Vegano" | "Vegetariano" | "Postres" | "Cena" | "Panadería" | "Sin TACC";
+export type Category =
+  | "Todos"
+  | "Vegano"
+  | "Vegetariano"
+  | "Postres"
+  | "Cena"
+  | "Panadería"
+  | "Sin TACC";
 
 export interface Pack {
   id: string;
@@ -41,7 +48,7 @@ export const PACKS: Pack[] = [
   {
     id: "p1",
     name: "1/4 de Pollo Broaster con Papas",
-    restaurant: "La Leñadora",
+    restaurant: "NutriDeli",
     restaurantId: "r1",
     address: "Av. Las Condes 1234",
     distanceKm: 0.5,

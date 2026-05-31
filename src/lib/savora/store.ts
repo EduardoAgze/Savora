@@ -26,6 +26,7 @@ export interface Offer {
   startPrice: number;
   endPrice: number;
   categories: string[];
+  image?: string;
   createdAt: number;
 }
 
@@ -79,7 +80,21 @@ const listeners = new Set<() => void>();
 
 function persist() {
   if (typeof window !== "undefined") {
-    localStorage.setItem(KEY, JSON.stringify(state));
+    const persistedState: State = {
+      ...state,
+      offers: state.offers.map((offer) => ({
+        id: offer.id,
+        name: offer.name,
+        quantity: offer.quantity,
+        originalPrice: offer.originalPrice,
+        aiEnabled: offer.aiEnabled,
+        startPrice: offer.startPrice,
+        endPrice: offer.endPrice,
+        categories: offer.categories,
+        createdAt: offer.createdAt,
+      })),
+    };
+    localStorage.setItem(KEY, JSON.stringify(persistedState));
   }
   listeners.forEach((l) => l());
 }
@@ -100,19 +115,14 @@ export const savoraStore = {
   login: () => setState({ authed: true }),
   logout: () => setState({ authed: false, role: null }),
   toggleOpen: () => setState((s) => ({ restaurantOpen: !s.restaurantOpen })),
-  rechargeWallet: (amount: number) =>
-    setState((s) => ({ walletBs: s.walletBs + amount })),
+  rechargeWallet: (amount: number) => setState((s) => ({ walletBs: s.walletBs + amount })),
   addOffer: (o: Omit<Offer, "id" | "createdAt">) =>
     setState((s) => ({
-      offers: [
-        { ...o, id: "o" + (s.offers.length + 1), createdAt: Date.now() },
-        ...s.offers,
-      ],
+      offers: [{ ...o, id: "o" + (s.offers.length + 1), createdAt: Date.now() }, ...s.offers],
     })),
   reservePack: (pack: Pack): Reservation => {
     const price = currentPrice(pack);
-    const code =
-      "SV-" + Math.floor(1000 + Math.random() * 9000).toString();
+    const code = "SV-" + Math.floor(1000 + Math.random() * 9000).toString();
     const res: Reservation = {
       id: "res-" + Date.now(),
       code,
