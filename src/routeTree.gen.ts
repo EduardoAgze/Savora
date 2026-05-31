@@ -9,38 +9,168 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WalletRouteImport } from './routes/wallet'
+import { Route as RoleRouteImport } from './routes/role'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as OrdersRouteImport } from './routes/orders'
+import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ReservationResIdRouteImport } from './routes/reservation.$resId'
+import { Route as PackPackIdRouteImport } from './routes/pack.$packId'
 
+const WalletRoute = WalletRouteImport.update({
+  id: '/wallet',
+  path: '/wallet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoleRoute = RoleRouteImport.update({
+  id: '/role',
+  path: '/role',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdersRoute = OrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExploreRoute = ExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReservationResIdRoute = ReservationResIdRouteImport.update({
+  id: '/reservation/$resId',
+  path: '/reservation/$resId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackPackIdRoute = PackPackIdRouteImport.update({
+  id: '/pack/$packId',
+  path: '/pack/$packId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/explore': typeof ExploreRoute
+  '/orders': typeof OrdersRoute
+  '/profile': typeof ProfileRoute
+  '/role': typeof RoleRoute
+  '/wallet': typeof WalletRoute
+  '/pack/$packId': typeof PackPackIdRoute
+  '/reservation/$resId': typeof ReservationResIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/explore': typeof ExploreRoute
+  '/orders': typeof OrdersRoute
+  '/profile': typeof ProfileRoute
+  '/role': typeof RoleRoute
+  '/wallet': typeof WalletRoute
+  '/pack/$packId': typeof PackPackIdRoute
+  '/reservation/$resId': typeof ReservationResIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/explore': typeof ExploreRoute
+  '/orders': typeof OrdersRoute
+  '/profile': typeof ProfileRoute
+  '/role': typeof RoleRoute
+  '/wallet': typeof WalletRoute
+  '/pack/$packId': typeof PackPackIdRoute
+  '/reservation/$resId': typeof ReservationResIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/explore'
+    | '/orders'
+    | '/profile'
+    | '/role'
+    | '/wallet'
+    | '/pack/$packId'
+    | '/reservation/$resId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/explore'
+    | '/orders'
+    | '/profile'
+    | '/role'
+    | '/wallet'
+    | '/pack/$packId'
+    | '/reservation/$resId'
+  id:
+    | '__root__'
+    | '/'
+    | '/explore'
+    | '/orders'
+    | '/profile'
+    | '/role'
+    | '/wallet'
+    | '/pack/$packId'
+    | '/reservation/$resId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ExploreRoute: typeof ExploreRoute
+  OrdersRoute: typeof OrdersRoute
+  ProfileRoute: typeof ProfileRoute
+  RoleRoute: typeof RoleRoute
+  WalletRoute: typeof WalletRoute
+  PackPackIdRoute: typeof PackPackIdRoute
+  ReservationResIdRoute: typeof ReservationResIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wallet': {
+      id: '/wallet'
+      path: '/wallet'
+      fullPath: '/wallet'
+      preLoaderRoute: typeof WalletRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/role': {
+      id: '/role'
+      path: '/role'
+      fullPath: '/role'
+      preLoaderRoute: typeof RoleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orders': {
+      id: '/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof OrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explore': {
+      id: '/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +178,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reservation/$resId': {
+      id: '/reservation/$resId'
+      path: '/reservation/$resId'
+      fullPath: '/reservation/$resId'
+      preLoaderRoute: typeof ReservationResIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pack/$packId': {
+      id: '/pack/$packId'
+      path: '/pack/$packId'
+      fullPath: '/pack/$packId'
+      preLoaderRoute: typeof PackPackIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ExploreRoute: ExploreRoute,
+  OrdersRoute: OrdersRoute,
+  ProfileRoute: ProfileRoute,
+  RoleRoute: RoleRoute,
+  WalletRoute: WalletRoute,
+  PackPackIdRoute: PackPackIdRoute,
+  ReservationResIdRoute: ReservationResIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
