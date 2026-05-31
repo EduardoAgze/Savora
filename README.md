@@ -55,11 +55,9 @@ El proyecto usa Vite para el desarrollo local y Nitro/Vercel para despliegue en 
 
 ## Imágenes referenciales
 
-![Savora interface referencial](https://via.placeholder.com/1200x600?text=Savora+UI+Preview)
+(public/images/image.png)
 
-![Arquitectura referencial](https://via.placeholder.com/1200x600?text=Arquitectura+Savora)
-
-> Nota: Estas imágenes son referencias visuales. Reemplaza los enlaces con capturas de pantalla reales cuando el proyecto esté listo para presentación.
+(public/images/image1.png)
 
 ## Instrucciones de ejecución
 
