@@ -15,6 +15,11 @@ import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as OrdersRouteImport } from './routes/orders'
 import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RestaurantIndexRouteImport } from './routes/restaurant.index'
+import { Route as RestaurantWalletRouteImport } from './routes/restaurant.wallet'
+import { Route as RestaurantSettingsRouteImport } from './routes/restaurant.settings'
+import { Route as RestaurantReservationsRouteImport } from './routes/restaurant.reservations'
+import { Route as RestaurantNewOfferRouteImport } from './routes/restaurant.new-offer'
 import { Route as ReservationResIdRouteImport } from './routes/reservation.$resId'
 import { Route as PackPackIdRouteImport } from './routes/pack.$packId'
 
@@ -48,6 +53,31 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RestaurantIndexRoute = RestaurantIndexRouteImport.update({
+  id: '/restaurant/',
+  path: '/restaurant/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestaurantWalletRoute = RestaurantWalletRouteImport.update({
+  id: '/restaurant/wallet',
+  path: '/restaurant/wallet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestaurantSettingsRoute = RestaurantSettingsRouteImport.update({
+  id: '/restaurant/settings',
+  path: '/restaurant/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestaurantReservationsRoute = RestaurantReservationsRouteImport.update({
+  id: '/restaurant/reservations',
+  path: '/restaurant/reservations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RestaurantNewOfferRoute = RestaurantNewOfferRouteImport.update({
+  id: '/restaurant/new-offer',
+  path: '/restaurant/new-offer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReservationResIdRoute = ReservationResIdRouteImport.update({
   id: '/reservation/$resId',
   path: '/reservation/$resId',
@@ -68,6 +98,11 @@ export interface FileRoutesByFullPath {
   '/wallet': typeof WalletRoute
   '/pack/$packId': typeof PackPackIdRoute
   '/reservation/$resId': typeof ReservationResIdRoute
+  '/restaurant/new-offer': typeof RestaurantNewOfferRoute
+  '/restaurant/reservations': typeof RestaurantReservationsRoute
+  '/restaurant/settings': typeof RestaurantSettingsRoute
+  '/restaurant/wallet': typeof RestaurantWalletRoute
+  '/restaurant/': typeof RestaurantIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,6 +113,11 @@ export interface FileRoutesByTo {
   '/wallet': typeof WalletRoute
   '/pack/$packId': typeof PackPackIdRoute
   '/reservation/$resId': typeof ReservationResIdRoute
+  '/restaurant/new-offer': typeof RestaurantNewOfferRoute
+  '/restaurant/reservations': typeof RestaurantReservationsRoute
+  '/restaurant/settings': typeof RestaurantSettingsRoute
+  '/restaurant/wallet': typeof RestaurantWalletRoute
+  '/restaurant': typeof RestaurantIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -89,6 +129,11 @@ export interface FileRoutesById {
   '/wallet': typeof WalletRoute
   '/pack/$packId': typeof PackPackIdRoute
   '/reservation/$resId': typeof ReservationResIdRoute
+  '/restaurant/new-offer': typeof RestaurantNewOfferRoute
+  '/restaurant/reservations': typeof RestaurantReservationsRoute
+  '/restaurant/settings': typeof RestaurantSettingsRoute
+  '/restaurant/wallet': typeof RestaurantWalletRoute
+  '/restaurant/': typeof RestaurantIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +146,11 @@ export interface FileRouteTypes {
     | '/wallet'
     | '/pack/$packId'
     | '/reservation/$resId'
+    | '/restaurant/new-offer'
+    | '/restaurant/reservations'
+    | '/restaurant/settings'
+    | '/restaurant/wallet'
+    | '/restaurant/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +161,11 @@ export interface FileRouteTypes {
     | '/wallet'
     | '/pack/$packId'
     | '/reservation/$resId'
+    | '/restaurant/new-offer'
+    | '/restaurant/reservations'
+    | '/restaurant/settings'
+    | '/restaurant/wallet'
+    | '/restaurant'
   id:
     | '__root__'
     | '/'
@@ -121,6 +176,11 @@ export interface FileRouteTypes {
     | '/wallet'
     | '/pack/$packId'
     | '/reservation/$resId'
+    | '/restaurant/new-offer'
+    | '/restaurant/reservations'
+    | '/restaurant/settings'
+    | '/restaurant/wallet'
+    | '/restaurant/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,6 +192,11 @@ export interface RootRouteChildren {
   WalletRoute: typeof WalletRoute
   PackPackIdRoute: typeof PackPackIdRoute
   ReservationResIdRoute: typeof ReservationResIdRoute
+  RestaurantNewOfferRoute: typeof RestaurantNewOfferRoute
+  RestaurantReservationsRoute: typeof RestaurantReservationsRoute
+  RestaurantSettingsRoute: typeof RestaurantSettingsRoute
+  RestaurantWalletRoute: typeof RestaurantWalletRoute
+  RestaurantIndexRoute: typeof RestaurantIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -178,6 +243,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/restaurant/': {
+      id: '/restaurant/'
+      path: '/restaurant'
+      fullPath: '/restaurant/'
+      preLoaderRoute: typeof RestaurantIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurant/wallet': {
+      id: '/restaurant/wallet'
+      path: '/restaurant/wallet'
+      fullPath: '/restaurant/wallet'
+      preLoaderRoute: typeof RestaurantWalletRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurant/settings': {
+      id: '/restaurant/settings'
+      path: '/restaurant/settings'
+      fullPath: '/restaurant/settings'
+      preLoaderRoute: typeof RestaurantSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurant/reservations': {
+      id: '/restaurant/reservations'
+      path: '/restaurant/reservations'
+      fullPath: '/restaurant/reservations'
+      preLoaderRoute: typeof RestaurantReservationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/restaurant/new-offer': {
+      id: '/restaurant/new-offer'
+      path: '/restaurant/new-offer'
+      fullPath: '/restaurant/new-offer'
+      preLoaderRoute: typeof RestaurantNewOfferRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reservation/$resId': {
       id: '/reservation/$resId'
       path: '/reservation/$resId'
@@ -204,6 +304,11 @@ const rootRouteChildren: RootRouteChildren = {
   WalletRoute: WalletRoute,
   PackPackIdRoute: PackPackIdRoute,
   ReservationResIdRoute: ReservationResIdRoute,
+  RestaurantNewOfferRoute: RestaurantNewOfferRoute,
+  RestaurantReservationsRoute: RestaurantReservationsRoute,
+  RestaurantSettingsRoute: RestaurantSettingsRoute,
+  RestaurantWalletRoute: RestaurantWalletRoute,
+  RestaurantIndexRoute: RestaurantIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
